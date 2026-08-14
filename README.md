@@ -64,6 +64,10 @@ The notebook currently includes:
 12. Real biological sequence analysis
 13. Nucleotide composition visualization
 14. Sliding-window GC content analysis
+15. DNA motif searching
+16. Restriction enzyme site analysis
+17. Open reading frame detection
+18. Candidate protein translation
 
 ## Biological Sequence Data
 
@@ -80,24 +84,31 @@ The lactose operon contains genes involved in lactose metabolism and provides a 
 
 ### Nucleotide Composition
 
+The sequence contains slightly more guanine and cytosine than adenine and thymine, producing an overall GC content of approximately **53.43%**.
+
 ![Nucleotide Composition](results/figures/nucleotide_composition.png)
 
 ### Sliding-Window GC Content
 
+Local GC content was calculated across 100-bp windows to examine how nucleotide composition changes across the sequence.
+
 ![Sliding Window GC Content](results/figures/sliding_window_gc_content.png)
 
+### Restriction Enzyme Analysis
 
-### Nucleotide Composition
+Four common restriction-enzyme recognition sequences were evaluated.
 
-The DNA sequence is analyzed to determine the counts and percentages of adenine, thymine, guanine, and cytosine.
+EcoRI was identified once in the analyzed sequence, while BamHI, HindIII, and NotI recognition sites were not detected.
 
-### GC Content
+### Open Reading Frame Analysis
 
-Overall GC content is calculated to characterize sequence composition.
+Candidate open reading frames were identified in forward reading frame 0 using a minimum length threshold of **90 base pairs (30 amino acids)**.
 
-### Sliding-Window GC Analysis
+A total of **19 candidate ORFs** were detected. The longest candidate ORF was **960 bp**.
 
-Instead of calculating one GC percentage for the entire sequence, local GC content is calculated across smaller sequence windows. This allows changes in nucleotide composition to be examined across the sequence.
+![ORF Length Distribution](results/figures/orf_length_distribution.png)
+
+The ORF analysis in this notebook is intentionally simplified and currently evaluates only one forward reading frame. Future development will expand the search to all six possible reading frames.
 
 ## Technologies
 
@@ -108,6 +119,18 @@ Instead of calculating one GC percentage for the entire sequence, local GC conte
 * matplotlib
 * Git
 * GitHub
+
+## Future Development
+
+Planned additions include:
+
+* Six-frame ORF analysis
+* Sequence alignment
+* BLAST-based sequence comparison
+* Codon-frequency analysis
+* Amino-acid composition analysis
+* Gene-region annotation
+* Additional genomic visualizations
 
 ## Future Development
 
